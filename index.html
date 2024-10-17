@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Phone Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #phoneNumber {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Phone Number Generator</h1>
+    <button id="generateButton">Generate Phone Number</button>
+    <div id="phoneNumber"></div>
+
+    <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const areaCode = '325';
+            const centralOfficeCode = String(Math.floor(Math.random() * 900) + 100); // Generates a number between 100-999
+            const lineNumber = String(Math.floor(Math.random() * 10000)).padStart(4, '0'); // Generates a number between 0000-9999
+            const phoneNumber = `(${areaCode}) ${centralOfficeCode}-${lineNumber}`;
+            document.getElementById('phoneNumber').textContent = phoneNumber;
+        });
+    </script>
+</body>
+</html>
